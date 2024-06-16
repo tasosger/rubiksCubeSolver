@@ -3,7 +3,7 @@ from collections import deque
 
 class RubiksCube:
     def __init__(self):
-        # Initial solved state as a tuple of lists
+        
         self.solved_state = (
             ('W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W'),  # Up face
             ('R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R'),  # Right face
@@ -146,7 +146,7 @@ class RubiksCube:
         return state
 
     def generate_moves(self, state):
-        # Generate all possible moves from the current state
+        
         moves = []
         for move in ['U', 'U\'', 'D', 'D\'', 'R', 'R\'', 'L', 'L\'', 'F', 'F\'', 'B', 'B\'']:
             new_state = self.apply_move(state, move)
@@ -154,7 +154,7 @@ class RubiksCube:
         return moves
 
     def is_solved(self, state):
-        # Check if the state is the solved state
+        
         return state == self.solved_state
 
 def bfs_solve(scrambled_state):
@@ -167,7 +167,7 @@ def bfs_solve(scrambled_state):
         
 
         current_state, path = queue.popleft()
-        print(current_state)
+        
         if cube.is_solved(current_state):
             return path
 
@@ -197,12 +197,13 @@ def scramble_to_state(scramble):
 
     return state
 
-# Example usage
+
 scramble = "R U R' U'"
 scrambled_state = scramble_to_state(scramble)
-print("Scrambled State:", scrambled_state)
 
 
-# Find the solution using BFS
+
+
 solution = bfs_solve(scrambled_state)
 print("Solution:", solution)
+print("moves: ",len(solution))
