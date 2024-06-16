@@ -187,14 +187,21 @@ def bfs_solve(scrambled_state):
     return None
 
 
-scrambled_state = (
-            ('W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W'),  # Up face
-            ('B', 'B', 'B', 'R', 'R', 'R', 'R', 'R', 'R'),  # Right face
-            ('O', 'O', 'O', 'B', 'B', 'B', 'B', 'B', 'B'),  # Front face
-            ('G', 'G', 'G', 'O', 'O', 'O', 'O', 'O', 'O'),  # Left face
-            ('R', 'R', 'R', 'G', 'G', 'G', 'G', 'G', 'G'),  # Back face
-            ('Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y') 
-)
+def scramble_to_state(scramble):
+    cube = RubiksCube()
+    state = cube.solved_state
+    moves = scramble.split()
+
+    for move in moves:
+        state = cube.apply_move(state, move)
+
+    return state
+
+# Example usage
+scramble = "R U R' U'"
+scrambled_state = scramble_to_state(scramble)
+print("Scrambled State:", scrambled_state)
+
 
 # Find the solution using BFS
 solution = bfs_solve(scrambled_state)
