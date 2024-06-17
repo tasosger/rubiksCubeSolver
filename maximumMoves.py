@@ -1,11 +1,11 @@
 from rubiksCubeSolver import  bfs_solve
 from randomscramble import scramble_to_state, generate_random_scramble
-def find_max_moves(num_scrambles=100):
+def find_max_moves(num_scrambles=100, scramble_lenth=4):
     max_moves = 0
     hardest_scramble = None
 
     for _ in range(num_scrambles):
-        scramble = generate_random_scramble(4)
+        scramble = generate_random_scramble(scramble_lenth)
         scrambled_state = scramble_to_state(scramble)
         solution = bfs_solve(scrambled_state)
         num_moves = len(solution)
@@ -17,6 +17,6 @@ def find_max_moves(num_scrambles=100):
     return max_moves, hardest_scramble
 
 if __name__ == "__main__":
-    max_moves, hardest_scramble = find_max_moves(3)
+    max_moves, hardest_scramble = find_max_moves(3,7)
     print(f"Maximum number of moves required: {max_moves}")
     print(f"Hardest scramble: {hardest_scramble}")
