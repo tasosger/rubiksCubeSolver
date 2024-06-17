@@ -198,12 +198,12 @@ def scramble_to_state(scramble):
     return state
 
 
-scramble = "R U R' U'"
-scrambled_state = scramble_to_state(scramble)
+#scramble = "R U R' U'"
+#scrambled_state = scramble_to_state(scramble)
 
 
 
 
-solution = bfs_solve(scrambled_state)
-print("Solution:", solution)
-print("moves: ",len(solution))
+#solution = bfs_solve(scrambled_state)
+#print("Solution:", solution)
+#print("moves: ",len(solution))
